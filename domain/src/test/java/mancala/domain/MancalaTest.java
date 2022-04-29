@@ -106,7 +106,7 @@ public class MancalaTest{
         Speler speler = new Speler();
         Vakje vak = new Vakje(speler);
         vak.getVakje(5).setNrOfBalls(10);
-        speler.Distribute(6, vak);
+        speler.distribute(6, vak);
         int[] arrayOfBalls = new int[14];
         for (int VakjeNr = 0; VakjeNr < 14; VakjeNr++){
             arrayOfBalls[VakjeNr] = vak.getVakje(VakjeNr).getNrOfBalls();
@@ -216,7 +216,7 @@ public class MancalaTest{
         Spel spel = new Spel();
         Speler speler = spel.getSpeler();
         Vakje vak = spel.getVak();
-        speler.Distribute(5, vak);
+        speler.distribute(5, vak);
         int nrOfB = vak.ballsOnPlayersSide(speler);
         assertEquals(21, nrOfB);
     }
@@ -226,7 +226,7 @@ public class MancalaTest{
         Spel spel = new Spel();
         Speler speler = spel.getSpeler();
         Vakje vak = spel.getVak();
-        speler.Distribute(5, vak);
+        speler.distribute(5, vak);
         int nrOfB = vak.ballsOnPlayersSide(speler.getTegenspeler());
         assertEquals(26, nrOfB);
     }
@@ -236,8 +236,8 @@ public class MancalaTest{
         Spel spel = new Spel();
         Speler speler = spel.getSpeler();
         Vakje vak = spel.getVak();
-        speler.Distribute(5, vak);
-        speler.getTegenspeler().Distribute(6, vak);
+        speler.distribute(5, vak);
+        speler.getTegenspeler().distribute(6, vak);
         int nrOfB = vak.ballsOnPlayersSide(speler);
         assertEquals(24, nrOfB);
     }
@@ -247,8 +247,8 @@ public class MancalaTest{
         Spel spel = new Spel();
         Speler speler = spel.getSpeler();
         Vakje vak = spel.getVak();
-        speler.Distribute(5, vak);
-        speler.getTegenspeler().Distribute(6, vak);
+        speler.distribute(5, vak);
+        speler.getTegenspeler().distribute(6, vak);
         int nrOfB = vak.ballsOnPlayersSide(speler.getTegenspeler());
         assertEquals(22, nrOfB);
     }
