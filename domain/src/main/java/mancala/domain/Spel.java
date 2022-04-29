@@ -5,6 +5,8 @@ public class Spel{
     public Spel(){
         this.speler = new Speler();
         this.vak = new Vakje(this.speler);
+        this.speler.setEersteVakje(this.vak);
+        this.speler.getTegenspeler().setEersteVakje(this.vak.getVakje(7));
     }
     public void playRound(int choice){
         if(speler.getAanDeBeurt() == true){
