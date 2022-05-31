@@ -1,0 +1,24 @@
+package mancala.domain;
+public class Vakje{
+    //protected Speler speler;
+    protected int nrOfBalls;
+    protected Vakje nextVakje;
+    public Vakje(/*Speler player*/){
+        //this.speler = player;
+        this.nrOfBalls = 4;
+        this.nextVakje = new Vakje(/*this.speler*/, 5);
+    }
+    private Vakje(/*Speler player, */int vakjesover){
+        //this.speler = player;
+        this.nrOfBalls = 4;
+        if (vakjesover == 1){
+            this.nextVakje = this;
+        }
+        else{
+            this.nextVakje = new Vakje(--vakjesover);
+        }
+    }
+    public int getNrOfBalls(){
+        return nrOfBalls;
+    }
+}

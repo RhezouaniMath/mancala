@@ -1,13 +1,19 @@
 package mancala.domain;
 
 public class MancalaImpl implements Mancala {
+
+    Spel game;
+
     public MancalaImpl() {
-        // Initialize the game here.
+        this.game = new Spel();
     }
 
     @Override
     public boolean isPlayersTurn(int player) {
-        return true;
+        if (player == PLAYER_TWO){
+            return game.getSpeler().getTegenspeler().getAanDeBeurt();
+        }
+        return game.getSpeler().getAanDeBeurt();
     }
 
     @Override
@@ -17,9 +23,7 @@ public class MancalaImpl implements Mancala {
 	
 	@Override
 	public int getStonesForPit(int index) {
-        // Make a sane implementation.
-        if((index + 1) % 7 == 0) return 0;
-        return 4;
+        return game.getVak().getVakje(index).getNrOfBalls();
     }
 
 	@Override

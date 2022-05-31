@@ -1,7 +1,5 @@
 package mancala.domain;
 
-import java.time.ZonedDateTime;
-
 public class Vakje{
 
 

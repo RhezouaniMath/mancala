@@ -1,0 +1,9 @@
+package mancala.domain;
+public class Kalaha extends Vakje{
+    public Kalaha(Speler player){
+        super(player);
+        this.speler = player;
+        this.nrOfBalls = 0;
+        this.nextVakje = player.getTegenspeler().getEersteVakje();
+    }
+}
