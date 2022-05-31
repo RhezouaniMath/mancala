@@ -54,11 +54,14 @@ public class Speler{
                 nrOfBallsToDistribute--;
                 Stelen(keuzevak);
             }
-            else if (keuzevak.getKalaha() == false || keuzevak.getSpeler()==this){
+            else if (keuzevak.getKalaha() == false || keuzevak.getSpeler()==this)
+            { // [ keuzevak.getKalaha() == false || keuzevak.getSpeler()==this ] == negate [ keuzevak.getKalaha() == true && keuzevak.getSpeler() != this ]
                 previousNrOfBalls++;
                 keuzevak.setNrOfBalls(previousNrOfBalls);
                 nrOfBallsToDistribute--;
                 switchBasedOnKalaha(keuzevak.getKalaha(), keuzevak.getSpeler());
+                // if kalaha && this player, then turn-1st-player = true, turn-2nd-player = false;
+                // else, then turn-1st-player = false, turn-2nd-player = true;
             }
         }
         printScores(vakje);
