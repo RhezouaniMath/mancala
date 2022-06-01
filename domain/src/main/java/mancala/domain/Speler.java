@@ -55,16 +55,15 @@ public class Speler{
                 Stelen(keuzevak);
             }
             else if (keuzevak.getKalaha() == false || keuzevak.getSpeler()==this)
-            { // [ keuzevak.getKalaha() == false || keuzevak.getSpeler()==this ] == negate [ keuzevak.getKalaha() == true && keuzevak.getSpeler() != this ]
+            { /* [ keuzevak.getKalaha() == false || keuzevak.getSpeler()==this ] == negate [ keuzevak.getKalaha() == true && keuzevak.getSpeler() != this ] */
                 previousNrOfBalls++;
                 keuzevak.setNrOfBalls(previousNrOfBalls);
                 nrOfBallsToDistribute--;
                 switchBasedOnKalaha(keuzevak.getKalaha(), keuzevak.getSpeler());
-                // if kalaha && this player, then turn-1st-player = true, turn-2nd-player = false;
-                // else, then turn-1st-player = false, turn-2nd-player = true;
+                /* if kalaha && this player, then turn-1st-player = true,  turn-2nd-player = false;
+                                       else, then turn-1st-player = false, turn-2nd-player = true ; */
             }
         }
-        printScores(vakje);
     }
 
     public void Stelen(Vakje keuzevak){
@@ -90,21 +89,6 @@ public class Speler{
         this.tegenspeler.aanDeBeurt = boolSp2;
     }
 
-    public void printScores(Vakje vakje){
-        int ballsSpeler = vakje.ballsOnPlayersSide(this);
-        int ballsTegenspeler = vakje.ballsOnPlayersSide(this.getTegenspeler());
-        int ballInKalahaSpeler = vakje.ballsInKalaha(this);
-        int ballInKalahaTegenspeler = vakje.ballsInKalaha(this.getTegenspeler());
-        int scoreSpeler = ballsSpeler + ballInKalahaSpeler;
-        int scoreTegenspeler = ballsTegenspeler + ballInKalahaTegenspeler;
-        System.out.println("Jouw score is " + scoreSpeler);
-        System.out.println("De score van jouw tegenspeler is " + scoreTegenspeler);
-        if (ballsSpeler * ballsTegenspeler == 0){
-            System.out.println("Er kan niet meer gespeeld worden. Het spel eindigt.");
-            printWinner(scoreSpeler, scoreTegenspeler);
-        }
-    }
-
     public int getScores(){
         int score = this.eersteVakje.ballsOnPlayersSide(this) + this.eersteVakje.getVakje(6).ballsInKalaha(this);
         return score;
@@ -120,18 +104,6 @@ public class Speler{
         }
         else{
             toSwitchOrNotToSwitch(false, true);
-        }
-    }
-
-    public void printWinner(int JouwScore, int AndermansScore){
-        if (JouwScore == AndermansScore){
-            System.out.println("Het is gelijkspel.");
-        }
-        else if (JouwScore > AndermansScore){
-            System.out.println("Jij hebt gewonnen.");
-        }
-        else {
-            System.out.println("Jouw tegenspeler heeft gewonnen.");
         }
     }
 
