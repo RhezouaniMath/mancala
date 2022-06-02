@@ -17,8 +17,8 @@ public class MancalaImpl implements Mancala {
     }
 
     @Override
-	public void playPit(int index) throws MancalaException {
-        if ( game.getSpeler().getAanDeBeurt() == true){
+	public void playPit(int index) //throws MancalaException {
+    {   if ( game.getSpeler().getAanDeBeurt() == true){
             game.getSpeler().distribute(index, game.getVak());
         }
         else{
