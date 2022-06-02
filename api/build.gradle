@@ -18,7 +18,7 @@ dependencies {
     implementation 'org.glassfish.jersey.inject:jersey-hk2:+'
     implementation 'org.glassfish.jersey.media:jersey-media-json-jackson:+'
     // Use Jakarta (Java EE) for the servlet primitives.
-    implementation 'jakarta.servlet:jakarta.servlet-api:+'
+    implementation 'jakarta.servlet:jakarta.servlet-api:5.+'
     // Use the Jetty server.
     implementation 'org.eclipse.jetty:jetty-server:+'
     implementation 'org.eclipse.jetty:jetty-servlet:+'

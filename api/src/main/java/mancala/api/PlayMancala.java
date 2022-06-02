@@ -15,9 +15,11 @@ public class PlayMancala {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response initialize(
-			@Context HttpServletRequest request, 
-			PlayerChoice playerChoice) {
+		@Context HttpServletRequest request, 
+		PlayerChoice playerChoice) {
+
 		int choice = playerChoice.getChoice();
+		//int choice = Integer.parseInt(playerChoice.getChoice());
 		
         HttpSession session = request.getSession(true);
 		var mancala = (MancalaImpl)session.getAttribute("mancala");
@@ -28,5 +30,6 @@ public class PlayMancala {
 
 		var output = new Mancala(mancala, namePlayer1, namePlayer2);
 		return Response.status(200).entity(output).build();
+
 	}
 }

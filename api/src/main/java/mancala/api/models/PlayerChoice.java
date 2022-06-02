@@ -15,4 +15,18 @@ public class PlayerChoice {
     public void setChoiceStrToInt(String choice){
         this.choice = Integer.parseInt(choice);
     }
+
+/*
+    String choice;
+
+    public String getChoice(){
+        return choice;
+    }
+
+    public void setChoice(String choice){
+        this.choice = choice;
+    }
+
+*/
+
 }
