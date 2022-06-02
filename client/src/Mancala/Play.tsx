@@ -37,6 +37,13 @@ export function Play({ gameState, setGameState }: PlayProps) {
         }
     }
 
+/*    function ShowWinner( x : boolean){
+        if(x){
+            return(
+                <div> The winner is: </div>
+        }
+    }*/
+
     return (
         <div>
             <p>{gameState.players[0].name} vs {gameState.players[1].name}</p>
