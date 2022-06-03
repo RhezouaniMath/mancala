@@ -37,12 +37,7 @@ export function Play({ gameState, setGameState }: PlayProps) {
         }
     }
 
-/*    function ShowWinner( x : boolean){
-        if(x){
-            return(
-                <div> The winner is: </div>
-        }
-    }*/
+    
 
     return (
         <div>
@@ -56,9 +51,11 @@ export function Play({ gameState, setGameState }: PlayProps) {
                 <button onClick={(e) => doMove(3,1)} class="vakje"> {gameState.players[1].pits[2].nrOfStones} </button>
                 <button onClick={(e) => doMove(2,1)} class="vakje"> {gameState.players[1].pits[1].nrOfStones} </button>
                 <button onClick={(e) => doMove(1,1)} class="vakje"> {gameState.players[1].pits[0].nrOfStones} </button>
+                <button class="blackbox"> {gameState.players[1].name} </button>
             </div>
 
             <div id = "player1vakjes">
+                <button class="blackbox"> {gameState.players[0].name} </button>
                 <button onClick={(e) => doMove(1,0)} class="vakje"> {gameState.players[0].pits[0].nrOfStones} </button>
                 <button onClick={(e) => doMove(2,0)} class="vakje"> {gameState.players[0].pits[1].nrOfStones} </button>
                 <button onClick={(e) => doMove(3,0)} class="vakje"> {gameState.players[0].pits[2].nrOfStones} </button>
@@ -67,7 +64,7 @@ export function Play({ gameState, setGameState }: PlayProps) {
                 <button onClick={(e) => doMove(6,0)} class="vakje"> {gameState.players[0].pits[5].nrOfStones} </button>
                 <button class="kalaha"> kalaha: {gameState.players[0].pits[6].nrOfStones} </button>
             </div>
-
+            {gameState.gameStatus.endOfGame ?  <div> The winner is: {gameState.gameStatus.winner}</div> : <div> We are still playing. Push a button to continue.</div>}
         </div>
     )
 }
